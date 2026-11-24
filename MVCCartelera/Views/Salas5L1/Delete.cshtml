@@ -1,0 +1,4 @@
+@model Salas5L1
+@{ ViewData["Title"] = "Eliminar sala"; }
+<div class="page-heading"><div><p class="eyebrow">ESPACIOS / ELIMINAR</p><h1>Eliminar sala</h1></div></div>
+<div class="form-panel"><p>¿Seguro que deseas eliminar la sala <strong>@Model.NombreSala</strong>?</p><p class="text-muted">Una sala no puede eliminarse si tiene películas asignadas.</p><form asp-action="Delete" asp-route-id="@Model.IdSala"><input type="hidden" asp-for="IdSala" /><div class="form-actions"><a asp-action="Index" class="btn btn-light">Cancelar</a><button type="submit" class="btn btn-danger">Eliminar sala</button></div></form></div>
