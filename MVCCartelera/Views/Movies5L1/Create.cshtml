@@ -1,0 +1,8 @@
+@model Movies5L1
+@{ ViewData["Title"] = "Nueva película"; }
+<div class="page-heading"><div><p class="eyebrow">CATÁLOGO / NUEVO REGISTRO</p><h1>Agregar película</h1></div></div>
+<form asp-action="Create" class="form-panel">
+    <partial name="_Form" model="Model" />
+    <div class="form-actions"><a asp-action="Index" class="btn btn-light">Cancelar</a><button class="btn btn-cinema" type="submit">Guardar película</button></div>
+</form>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }
