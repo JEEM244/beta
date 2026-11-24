@@ -1,0 +1,4 @@
+@model Salas5L1
+@{ ViewData["Title"] = "Detalle de sala"; }
+<div class="page-heading"><div><p class="eyebrow">ESPACIOS / DETALLE</p><h1>@Model.NombreSala</h1></div><a asp-action="Index" class="btn btn-light">Volver</a></div>
+<div class="detail-panel"><dl class="detail-grid"><dt>Capacidad</dt><dd>@Model.Capacidad personas</dd><dt>Tipo</dt><dd>@Model.TipoSala</dd><dt>Estado</dt><dd>@(Model.Activa ? "Activa" : "Inactiva")</dd><dt>Películas asignadas</dt><dd>@Model.Movies5L1.Count</dd></dl><a asp-action="Edit" asp-route-id="@Model.IdSala" class="btn btn-cinema">Editar sala</a></div>
