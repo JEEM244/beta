@@ -1,0 +1,8 @@
+@model IEnumerable<Salas5L1>
+@{ ViewData["Title"] = "Salas"; }
+<div class="page-heading"><div><p class="eyebrow">ESPACIOS / 02</p><h1>Salas</h1><p>Administra las salas disponibles para las películas.</p></div><a asp-action="Create" class="btn btn-cinema">Agregar sala</a></div>
+<div class="table-wrap"><table class="table cinema-table align-middle">
+<thead><tr><th>Sala</th><th>Capacidad</th><th>Tipo</th><th>Estado</th><th>Películas</th><th class="text-end">Acciones</th></tr></thead><tbody>
+@foreach (var item in Model) { <tr><td class="fw-semibold">@item.NombreSala</td><td>@item.Capacidad personas</td><td>@item.TipoSala</td><td><span class="rating-tag">@(item.Activa ? "Activa" : "Inactiva")</span></td><td>@item.Movies5L1.Count</td><td class="text-end action-links"><a asp-action="Details" asp-route-id="@item.IdSala">Ver</a><a asp-action="Edit" asp-route-id="@item.IdSala">Editar</a><a class="danger-link" asp-action="Delete" asp-route-id="@item.IdSala">Eliminar</a></td></tr> }
+</tbody></table>
+@if (!Model.Any()) { <p class="empty-state">Todavía no hay salas registradas.</p> }</div>
