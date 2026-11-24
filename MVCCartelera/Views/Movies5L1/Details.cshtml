@@ -1,0 +1,8 @@
+@model Movies5L1
+@{ ViewData["Title"] = "Detalle de película"; }
+<div class="page-heading"><div><p class="eyebrow">CATÁLOGO / DETALLE</p><h1>@Model.Titulo</h1></div><a asp-action="Index" class="btn btn-light">Volver</a></div>
+<div class="detail-panel"><dl class="detail-grid">
+    <dt>Género</dt><dd>@Model.Genero</dd><dt>Duración</dt><dd>@Model.DuracionMinutos minutos</dd>
+    <dt>Clasificación</dt><dd>@Model.Clasificacion</dd><dt>Estreno</dt><dd>@(Model.FechaEstreno?.ToString("dd/MM/yyyy") ?? "Sin fecha")</dd>
+    <dt>Sala</dt><dd>@Model.Sala?.NombreSala</dd><dt>Sinopsis</dt><dd>@(Model.Sinopsis ?? "Sin descripción")</dd>
+</dl><a asp-action="Edit" asp-route-id="@Model.IdMovie" class="btn btn-cinema">Editar película</a></div>
