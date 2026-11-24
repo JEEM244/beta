@@ -1,0 +1,6 @@
+@model Movies5L1
+@{ ViewData["Title"] = "Eliminar película"; }
+<div class="page-heading"><div><p class="eyebrow">CATÁLOGO / ELIMINAR</p><h1>Eliminar película</h1></div></div>
+<div class="form-panel"><p>¿Seguro que deseas eliminar <strong>@Model.Titulo</strong> de la cartelera?</p>
+    <form asp-action="Delete" asp-route-id="@Model.IdMovie"><input type="hidden" asp-for="IdMovie" /><div class="form-actions"><a asp-action="Index" class="btn btn-light">Cancelar</a><button type="submit" class="btn btn-danger">Eliminar definitivamente</button></div></form>
+</div>
