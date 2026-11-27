@@ -1,16 +1,13 @@
 @{
     ViewData["Title"] = "Inicio";
 }
-<section class="hero-panel">
-    <p class="eyebrow">ADMINISTRACIÓN DE CINE · 5L1</p>
-    <h1>Tu cartelera,<br /><span>en un solo lugar.</span></h1>
-    <p class="hero-copy">Administra las películas disponibles y las salas donde se proyectan.</p>
-    <div class="d-flex flex-wrap gap-2 mt-4">
-        <a class="btn btn-cinema" asp-controller="Movies5L1" asp-action="Index">Ver películas</a>
-        <a class="btn btn-outline-light" asp-controller="Salas5L1" asp-action="Index">Administrar salas</a>
-    </div>
-</section>
-<div class="row g-3 mt-3">
-    <div class="col-md-6"><div class="info-tile"><span>01 / CATÁLOGO</span><h2>Películas</h2><p>Registra títulos, género, duración, clasificación y sala asignada.</p></div></div>
-    <div class="col-md-6"><div class="info-tile"><span>02 / ESPACIOS</span><h2>Salas</h2><p>Organiza los espacios disponibles y su capacidad.</p></div></div>
+
+<div class="home-intro">
+    <h1>Bienvenido a Cartelera 5L1</h1>
+    <p>Administra las películas disponibles y las salas donde se proyectan.</p>
+    <p>
+        <a asp-controller="Movies5L1" asp-action="Index">Consultar películas</a>
+        <span class="text-muted"> | </span>
+        <a asp-controller="Salas5L1" asp-action="Index">Consultar salas</a>
+    </p>
 </div>
