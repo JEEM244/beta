@@ -1,0 +1,42 @@
+@model Sala
+@{
+    ViewData["Title"] = "Registrar sala";
+}
+
+<h1 class="page-title">Registrar sala</h1>
+<div class="form-container">
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+        <div class="mb-3">
+            <label asp-for="NombreSala" class="form-label"></label>
+            <input asp-for="NombreSala" class="form-control" />
+            <span asp-validation-for="NombreSala" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Capacidad" class="form-label"></label>
+            <input asp-for="Capacidad" type="number" min="1" class="form-control" />
+            <span asp-validation-for="Capacidad" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="FormatoSala" class="form-label"></label>
+            <select asp-for="FormatoSala" class="form-select">
+                <option value="">Seleccione un formato</option>
+                <option value="Tradicional">Tradicional</option>
+                <option value="3D">3D</option>
+                <option value="VIP">VIP</option>
+                <option value="IMAX">IMAX</option>
+            </select>
+            <span asp-validation-for="FormatoSala" class="text-danger"></span>
+        </div>
+        <div class="form-check mb-3">
+            <input asp-for="Activa" class="form-check-input" />
+            <label asp-for="Activa" class="form-check-label">Sala activa</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Regresar</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
