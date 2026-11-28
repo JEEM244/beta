@@ -3,47 +3,53 @@
     ViewData["Title"] = "Funciones";
 }
 
-<div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+<div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
     <div>
+        <span class="eyebrow">PROGRAMACIÓN DEL CINE</span>
         <h1 class="page-title">Funciones</h1>
-        <p class="text-muted">Administra los horarios de las películas en cada sala.</p>
+        <p class="page-subtitle mb-0">Consulta las películas, salas y horarios programados.</p>
     </div>
-    <a asp-action="Create" class="btn btn-primary">Registrar función</a>
+    <a asp-action="Create" class="btn btn-accent">+ Registrar función</a>
 </div>
 
-<table class="table table-hover align-middle">
-    <thead>
-        <tr>
-            <th>Película</th>
-            <th>Sala</th>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Precio</th>
-            <th>Idioma</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model)
+<div class="table-shell">
+    <table class="table table-hover align-middle mb-0">
+        <thead>
+            <tr>
+                <th>Película</th>
+                <th>Sala</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Precio</th>
+                <th>Idioma</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="fw-semibold">@item.Pelicula?.Titulo</td>
+                <td>@item.Sala?.NombreSala</td>
+                <td>@item.FechaFuncion.ToString("dd/MM/yyyy")</td>
+                <td><span class="time-tag">@item.HoraInicio.ToString(@"hh\:mm")</span></td>
+                <td>@item.Precio.ToString("C")</td>
+                <td>@item.Idioma</td>
+                <td class="table-actions">
+                    <a asp-action="Details" asp-route-id="@item.IdFuncion">Ver</a>
+                    <a asp-action="Edit" asp-route-id="@item.IdFuncion">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdFuncion">Eliminar</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    @if (!Model.Any())
     {
-        <tr>
-            <td>@item.Pelicula?.Titulo</td>
-            <td>@item.Sala?.NombreSala</td>
-            <td>@item.FechaFuncion.ToString("dd/MM/yyyy")</td>
-            <td>@item.HoraInicio.ToString(@"hh\:mm")</td>
-            <td>@item.Precio.ToString("C")</td>
-            <td>@item.Idioma</td>
-            <td class="table-actions">
-                <a asp-action="Edit" asp-route-id="@item.IdFuncion">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.IdFuncion">Detalles</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdFuncion">Eliminar</a>
-            </td>
-        </tr>
+        <div class="empty-state m-3">
+            <h3>No hay funciones programadas</h3>
+            <p>Agrega una función y asígnala a una película y una sala.</p>
+            <a asp-action="Create" class="btn btn-accent">Registrar función</a>
+        </div>
     }
-    </tbody>
-</table>
-
-@if (!Model.Any())
-{
-    <p class="text-muted">Todavía no hay funciones registradas.</p>
-}
+</div>
