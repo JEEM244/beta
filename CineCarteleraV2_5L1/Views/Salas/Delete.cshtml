@@ -1,0 +1,20 @@
+@model Sala
+@{
+    ViewData["Title"] = "Eliminar sala";
+}
+
+<h1 class="page-title">Eliminar sala</h1>
+<p>¿Estás seguro de que deseas eliminar esta sala?</p>
+<dl class="row">
+    <dt class="col-sm-3">Nombre</dt>
+    <dd class="col-sm-9">@Model.NombreSala</dd>
+    <dt class="col-sm-3">Capacidad</dt>
+    <dd class="col-sm-9">@Model.Capacidad personas</dd>
+    <dt class="col-sm-3">Formato</dt>
+    <dd class="col-sm-9">@Model.FormatoSala</dd>
+</dl>
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="IdSala" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
