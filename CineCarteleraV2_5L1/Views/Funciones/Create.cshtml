@@ -1,0 +1,56 @@
+@model Funcion
+@{
+    ViewData["Title"] = "Registrar función";
+}
+
+<h1 class="page-title">Registrar función</h1>
+<div class="form-container">
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label asp-for="IdPelicula" class="form-label"></label>
+            <select asp-for="IdPelicula" asp-items="ViewBag.IdPelicula" class="form-select">
+                <option value="">Seleccione una película</option>
+            </select>
+            <span asp-validation-for="IdPelicula" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="IdSala" class="form-label"></label>
+            <select asp-for="IdSala" asp-items="ViewBag.IdSala" class="form-select">
+                <option value="">Seleccione una sala</option>
+            </select>
+            <span asp-validation-for="IdSala" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="FechaFuncion" class="form-label"></label>
+            <input asp-for="FechaFuncion" type="date" class="form-control" />
+            <span asp-validation-for="FechaFuncion" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="HoraInicio" class="form-label"></label>
+            <input asp-for="HoraInicio" type="time" class="form-control" />
+            <span asp-validation-for="HoraInicio" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Precio" class="form-label"></label>
+            <input asp-for="Precio" type="number" min="0" step="0.01" class="form-control" />
+            <span asp-validation-for="Precio" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Idioma" class="form-label"></label>
+            <select asp-for="Idioma" class="form-select">
+                <option value="Español">Español</option>
+                <option value="Subtitulada">Subtitulada</option>
+                <option value="Inglés">Inglés</option>
+            </select>
+            <span asp-validation-for="Idioma" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Regresar</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
