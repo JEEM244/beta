@@ -3,13 +3,13 @@
     ViewData["Title"] = "Películas";
 }
 
-<div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
     <div>
-        <span class="eyebrow">ADMINISTRACIÓN DEL CATÁLOGO</span>
+        <span class="eyebrow">CATÁLOGO</span>
         <h1 class="page-title">Películas</h1>
-        <p class="page-subtitle mb-0">Gestiona los títulos disponibles en la cartelera.</p>
+        <p class="page-subtitle mb-0">Consulta y administra las películas registradas.</p>
     </div>
-    <a asp-action="Create" class="btn btn-accent">+ Registrar película</a>
+    <a asp-action="Create" class="btn btn-primary">Registrar película</a>
 </div>
 
 <div class="table-shell">
@@ -20,7 +20,7 @@
                 <th>Género</th>
                 <th>Duración</th>
                 <th>Clasificación</th>
-                <th>Estado</th>
+                <th>Disponible</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -34,12 +34,12 @@
                 <td><span class="data-tag">@item.Clasificacion</span></td>
                 <td>
                     <span class="status-pill @(item.Disponible ? "status-on" : "status-off")">
-                        @(item.Disponible ? "Disponible" : "No disponible")
+                        @(item.Disponible ? "Sí" : "No")
                     </span>
                 </td>
                 <td class="table-actions">
-                    <a asp-action="Details" asp-route-id="@item.IdPelicula">Ver</a>
-                    <a asp-action="Edit" asp-route-id="@item.IdPelicula">Editar</a>
+                    <a asp-action="Edit" asp-route-id="@item.IdPelicula">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdPelicula">Detalles</a> |
                     <a asp-action="Delete" asp-route-id="@item.IdPelicula">Eliminar</a>
                 </td>
             </tr>
@@ -48,10 +48,6 @@
     </table>
     @if (!Model.Any())
     {
-        <div class="empty-state m-3">
-            <h3>No hay películas registradas</h3>
-            <p>Agrega el primer título para comenzar tu catálogo.</p>
-            <a asp-action="Create" class="btn btn-accent">Registrar película</a>
-        </div>
+        <p class="text-muted m-3">Todavía no hay películas registradas.</p>
     }
 </div>
