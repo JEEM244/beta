@@ -1,0 +1,20 @@
+@model Funcion
+@{
+    ViewData["Title"] = "Eliminar función";
+}
+
+<h1 class="page-title">Eliminar función</h1>
+<p>¿Estás seguro de que deseas eliminar esta función?</p>
+<dl class="row">
+    <dt class="col-sm-3">Película</dt>
+    <dd class="col-sm-9">@Model.Pelicula?.Titulo</dd>
+    <dt class="col-sm-3">Sala</dt>
+    <dd class="col-sm-9">@Model.Sala?.NombreSala</dd>
+    <dt class="col-sm-3">Fecha y hora</dt>
+    <dd class="col-sm-9">@Model.FechaFuncion.ToString("dd/MM/yyyy") - @Model.HoraInicio.ToString(@"hh\:mm")</dd>
+</dl>
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="IdFuncion" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
