@@ -7,11 +7,11 @@ public class Funcion
     [Key]
     public int IdFuncion { get; set; }
 
-    [Required]
+    [Range(1, int.MaxValue, ErrorMessage = "Selecciona una película.")]
     [Display(Name = "Película")]
     public int IdPelicula { get; set; }
 
-    [Required]
+    [Range(1, int.MaxValue, ErrorMessage = "Selecciona una sala.")]
     [Display(Name = "Sala")]
     public int IdSala { get; set; }
 
@@ -23,7 +23,7 @@ public class Funcion
     [Required]
     [DataType(DataType.Time)]
     [Display(Name = "Hora de inicio")]
-    public TimeSpan HoraInicio { get; set; }
+    public TimeSpan HoraInicio { get; set; } = new(12, 0, 0);
 
     [Range(typeof(decimal), "0", "999999.99", ErrorMessage = "El precio no puede ser negativo.")]
     public decimal Precio { get; set; }
