@@ -1,63 +1,15 @@
-@model IEnumerable<Pelicula>
 @{
     ViewData["Title"] = "Inicio";
 }
 
-<section class="welcome-panel">
-    <span class="eyebrow">SISTEMA DE CARTELERA · 5L1</span>
-    <h1>Bienvenido a CineCartelera</h1>
-    <p>Consulta las películas registradas, administra las salas y organiza los horarios de las funciones.</p>
-    <div class="welcome-links">
-        <a asp-controller="Peliculas" asp-action="Index" class="btn btn-primary">Ver películas</a>
-        <a asp-controller="Funciones" asp-action="Index" class="btn btn-outline-secondary">Consultar funciones</a>
-    </div>
-</section>
-
-<section class="stats-grid">
-    <a asp-controller="Peliculas" asp-action="Index" class="stat-card">
-        <span class="stat-label">Películas registradas</span>
-        <strong>@ViewBag.TotalPeliculas</strong>
-        <span class="stat-link">Consultar catálogo</span>
-    </a>
-    <a asp-controller="Salas" asp-action="Index" class="stat-card">
-        <span class="stat-label">Salas registradas</span>
-        <strong>@ViewBag.TotalSalas</strong>
-        <span class="stat-link">Administrar salas</span>
-    </a>
-    <a asp-controller="Funciones" asp-action="Index" class="stat-card">
-        <span class="stat-label">Funciones registradas</span>
-        <strong>@ViewBag.TotalFunciones</strong>
-        <span class="stat-link">Consultar horarios</span>
-    </a>
-</section>
-
-<section class="catalog-section">
-    <div class="section-heading">
-        <div>
-            <span class="eyebrow">CATÁLOGO</span>
-            <h2>Películas disponibles</h2>
-        </div>
-        <a asp-controller="Peliculas" asp-action="Index">Ver todas</a>
-    </div>
-
-    @if (Model.Any())
-    {
-        <div class="movie-list">
-            @foreach (var pelicula in Model)
-            {
-                <article class="movie-item">
-                    <h3>@pelicula.Titulo</h3>
-                    <p>@pelicula.Genero · @pelicula.DuracionMinutos minutos · Clasificación @pelicula.Clasificacion</p>
-                    <a asp-controller="Peliculas" asp-action="Details" asp-route-id="@pelicula.IdPelicula">Consultar detalles</a>
-                </article>
-            }
-        </div>
-    }
-    else
-    {
-        <div class="empty-state">
-            <p class="mb-2">Todavía no hay películas disponibles.</p>
-            <a asp-controller="Peliculas" asp-action="Create" class="btn btn-primary">Registrar película</a>
-        </div>
-    }
-</section>
+<div class="text-center home-intro">
+    <h1 class="display-4">Bienvenido a CineCartelera</h1>
+    <p>Consulta y administra las películas, salas y funciones del cine.</p>
+    <p>
+        <a asp-controller="Peliculas" asp-action="Index">Consultar películas</a>
+        |
+        <a asp-controller="Salas" asp-action="Index">Consultar salas</a>
+        |
+        <a asp-controller="Funciones" asp-action="Index">Consultar funciones</a>
+    </p>
+</div>
