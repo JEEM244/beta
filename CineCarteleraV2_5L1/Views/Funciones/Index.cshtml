@@ -3,13 +3,13 @@
     ViewData["Title"] = "Funciones";
 }
 
-<div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
     <div>
-        <span class="eyebrow">PROGRAMACIÓN DEL CINE</span>
+        <span class="eyebrow">HORARIOS DEL CINE</span>
         <h1 class="page-title">Funciones</h1>
-        <p class="page-subtitle mb-0">Consulta las películas, salas y horarios programados.</p>
+        <p class="page-subtitle mb-0">Consulta y administra los horarios programados.</p>
     </div>
-    <a asp-action="Create" class="btn btn-accent">+ Registrar función</a>
+    <a asp-action="Create" class="btn btn-primary">Registrar función</a>
 </div>
 
 <div class="table-shell">
@@ -36,8 +36,8 @@
                 <td>@item.Precio.ToString("C")</td>
                 <td>@item.Idioma</td>
                 <td class="table-actions">
-                    <a asp-action="Details" asp-route-id="@item.IdFuncion">Ver</a>
-                    <a asp-action="Edit" asp-route-id="@item.IdFuncion">Editar</a>
+                    <a asp-action="Edit" asp-route-id="@item.IdFuncion">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdFuncion">Detalles</a> |
                     <a asp-action="Delete" asp-route-id="@item.IdFuncion">Eliminar</a>
                 </td>
             </tr>
@@ -46,10 +46,6 @@
     </table>
     @if (!Model.Any())
     {
-        <div class="empty-state m-3">
-            <h3>No hay funciones programadas</h3>
-            <p>Agrega una función y asígnala a una película y una sala.</p>
-            <a asp-action="Create" class="btn btn-accent">Registrar función</a>
-        </div>
+        <p class="text-muted m-3">Todavía no hay funciones registradas.</p>
     }
 </div>
