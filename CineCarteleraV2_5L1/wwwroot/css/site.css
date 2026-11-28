@@ -52,3 +52,51 @@ body {
         margin-bottom: 5px;
     }
 }
+
+/* Ajustes visuales discretos para diferenciar esta versión */
+.navbar-brand {
+    font-weight: 600;
+    letter-spacing: .2px;
+}
+
+.navbar .nav-link {
+    border-radius: 4px;
+    transition: background-color .15s ease;
+}
+
+.navbar .nav-link:hover {
+    background-color: #f1f5f7;
+    color: #365f6b !important;
+}
+
+.page-title {
+    padding-bottom: 7px;
+    border-bottom: 1px solid #e9ecef;
+    color: #344b55;
+}
+
+.table thead th {
+    background-color: #f7f9fa;
+    color: #495b63;
+    font-weight: 600;
+}
+
+.table tbody tr {
+    transition: background-color .15s ease;
+}
+
+.btn-primary {
+    background-color: #527f8c;
+    border-color: #527f8c;
+}
+
+.btn-primary:hover {
+    background-color: #416c78;
+    border-color: #416c78;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #91b1ba;
+    box-shadow: 0 0 0 .2rem rgba(82, 127, 140, .15);
+}
