@@ -632,3 +632,40 @@ dd {
         padding: 18px;
     }
 }
+
+.data-tag,
+.time-tag {
+    display: inline-block;
+    padding: 5px 9px;
+    border: 1px solid #465365;
+    border-radius: 6px;
+    background: #222c38;
+    color: #dce3ec;
+    font-size: .75rem;
+    font-weight: 750;
+}
+
+.time-tag {
+    border-color: #70432f;
+    background: #35261f;
+    color: #ffad82;
+    font-variant-numeric: tabular-nums;
+}
+
+.status-pill {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 999px;
+    font-size: .7rem;
+    font-weight: 800;
+}
+
+.status-on {
+    background: rgba(49, 170, 118, .15);
+    color: #75d8a9;
+}
+
+.status-off {
+    background: rgba(207, 93, 93, .15);
+    color: #ff9999;
+}
