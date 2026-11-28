@@ -1,15 +1,77 @@
+@model IEnumerable<Pelicula>
 @{
     ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center home-intro">
-    <h1 class="display-4">Bienvenido a CineCartelera</h1>
-    <p>Consulta y administra las películas, salas y funciones del cine.</p>
-    <p>
-        <a asp-controller="Peliculas" asp-action="Index">Consultar películas</a>
-        |
-        <a asp-controller="Salas" asp-action="Index">Consultar salas</a>
-        |
-        <a asp-controller="Funciones" asp-action="Index">Consultar funciones</a>
-    </p>
-</div>
+<section class="hero-panel">
+    <div class="hero-content">
+        <span class="eyebrow">SISTEMA DE ADMINISTRACIÓN · 5L1</span>
+        <h1>La experiencia del cine,<br /><span>desde el control.</span></h1>
+        <p>Administra películas, organiza salas y consulta las funciones registradas desde un solo lugar.</p>
+        <div class="hero-actions">
+            <a asp-controller="Peliculas" asp-action="Index" class="btn btn-accent">Explorar películas</a>
+            <a asp-controller="Funciones" asp-action="Index" class="btn btn-outline-light">Ver funciones</a>
+        </div>
+    </div>
+    <div class="hero-decoration" aria-hidden="true">
+        <div class="film-circle"></div>
+        <div class="ticket-shape"><span>PLAY</span><strong>5L1</strong><small>YOUR NEXT SHOW</small></div>
+    </div>
+</section>
+
+<section class="stats-grid">
+    <a asp-controller="Peliculas" asp-action="Index" class="stat-card">
+        <span class="stat-label">PELÍCULAS REGISTRADAS</span>
+        <strong>@ViewBag.TotalPeliculas</strong>
+        <span class="stat-link">Consultar catálogo <span>↗</span></span>
+    </a>
+    <a asp-controller="Salas" asp-action="Index" class="stat-card">
+        <span class="stat-label">SALAS DISPONIBLES</span>
+        <strong>@ViewBag.TotalSalas</strong>
+        <span class="stat-link">Administrar salas <span>↗</span></span>
+    </a>
+    <a asp-controller="Funciones" asp-action="Index" class="stat-card stat-card-highlight">
+        <span class="stat-label">FUNCIONES REGISTRADAS</span>
+        <strong>@ViewBag.TotalFunciones</strong>
+        <span class="stat-link">Revisar horarios <span>↗</span></span>
+    </a>
+</section>
+
+<section class="catalog-section">
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">EN CARTELERA</span>
+            <h2>Catálogo de películas</h2>
+        </div>
+        <a asp-controller="Peliculas" asp-action="Index" class="text-link">Ver catálogo completo ↗</a>
+    </div>
+
+    @if (Model.Any())
+    {
+        <div class="movie-grid">
+            @foreach (var pelicula in Model)
+            {
+                <article class="movie-card">
+                    <div class="movie-poster">
+                        <span class="poster-tag">@pelicula.Clasificacion</span>
+                        <span class="poster-symbol">C</span>
+                        <span class="poster-genre">@pelicula.Genero</span>
+                    </div>
+                    <div class="movie-info">
+                        <h3>@pelicula.Titulo</h3>
+                        <p>@pelicula.DuracionMinutos min <span>·</span> @pelicula.Genero</p>
+                        <a asp-controller="Peliculas" asp-action="Details" asp-route-id="@pelicula.IdPelicula">Ver detalles ↗</a>
+                    </div>
+                </article>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="empty-state">
+            <h3>Tu catálogo está listo para comenzar</h3>
+            <p>Registra una película para que aparezca en esta sección.</p>
+            <a asp-controller="Peliculas" asp-action="Create" class="btn btn-accent">Registrar primera película</a>
+        </div>
+    }
+</section>
