@@ -3,43 +3,53 @@
     ViewData["Title"] = "Salas";
 }
 
-<div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+<div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
     <div>
+        <span class="eyebrow">ESPACIOS Y CAPACIDAD</span>
         <h1 class="page-title">Salas</h1>
-        <p class="text-muted">Consulta y administra las salas del cine.</p>
+        <p class="page-subtitle mb-0">Organiza los espacios y formatos de proyección.</p>
     </div>
-    <a asp-action="Create" class="btn btn-primary">Registrar sala</a>
+    <a asp-action="Create" class="btn btn-accent">+ Registrar sala</a>
 </div>
 
-<table class="table table-hover align-middle">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Capacidad</th>
-            <th>Formato</th>
-            <th>Activa</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model)
+<div class="table-shell">
+    <table class="table table-hover align-middle mb-0">
+        <thead>
+            <tr>
+                <th>Sala</th>
+                <th>Capacidad</th>
+                <th>Formato</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="fw-semibold">@item.NombreSala</td>
+                <td>@item.Capacidad personas</td>
+                <td><span class="data-tag">@item.FormatoSala</span></td>
+                <td>
+                    <span class="status-pill @(item.Activa ? "status-on" : "status-off")">
+                        @(item.Activa ? "Activa" : "Inactiva")
+                    </span>
+                </td>
+                <td class="table-actions">
+                    <a asp-action="Details" asp-route-id="@item.IdSala">Ver</a>
+                    <a asp-action="Edit" asp-route-id="@item.IdSala">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdSala">Eliminar</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    @if (!Model.Any())
     {
-        <tr>
-            <td>@item.NombreSala</td>
-            <td>@item.Capacidad personas</td>
-            <td>@item.FormatoSala</td>
-            <td>@(item.Activa ? "Sí" : "No")</td>
-            <td class="table-actions">
-                <a asp-action="Edit" asp-route-id="@item.IdSala">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.IdSala">Detalles</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdSala">Eliminar</a>
-            </td>
-        </tr>
+        <div class="empty-state m-3">
+            <h3>No hay salas registradas</h3>
+            <p>Registra una sala para comenzar a organizar las funciones.</p>
+            <a asp-action="Create" class="btn btn-accent">Registrar sala</a>
+        </div>
     }
-    </tbody>
-</table>
-
-@if (!Model.Any())
-{
-    <p class="text-muted">Todavía no hay salas registradas.</p>
-}
+</div>
