@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center home-intro">
+    <h1 class="display-4">Bienvenido a CineCartelera</h1>
+    <p>Consulta y administra las películas, salas y funciones del cine.</p>
+    <p>
+        <a asp-controller="Peliculas" asp-action="Index">Consultar películas</a>
+        |
+        <a asp-controller="Salas" asp-action="Index">Consultar salas</a>
+        |
+        <a asp-controller="Funciones" asp-action="Index">Consultar funciones</a>
+    </p>
+</div>
