@@ -1,0 +1,18 @@
+@model Sala
+@{
+    ViewData["Title"] = "Detalles de sala";
+}
+
+<h1 class="page-title">Detalles de sala</h1>
+<dl class="row">
+    <dt class="col-sm-3">Nombre de la sala</dt>
+    <dd class="col-sm-9">@Model.NombreSala</dd>
+    <dt class="col-sm-3">Capacidad</dt>
+    <dd class="col-sm-9">@Model.Capacidad personas</dd>
+    <dt class="col-sm-3">Formato</dt>
+    <dd class="col-sm-9">@Model.FormatoSala</dd>
+    <dt class="col-sm-3">Activa</dt>
+    <dd class="col-sm-9">@(Model.Activa ? "Sí" : "No")</dd>
+</dl>
+<a asp-action="Edit" asp-route-id="@Model.IdSala" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Regresar</a>
