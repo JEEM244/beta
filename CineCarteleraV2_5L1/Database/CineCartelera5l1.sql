@@ -71,7 +71,7 @@ VALUES
      N'Una tripulación intenta encontrar un nuevo hogar después de recibir una señal desconocida.', 1),
     (N'El mapa de los sueños', N'Aventura', 105, N'A', '2026-10-15',
      N'Dos hermanos siguen un mapa antiguo que los lleva a lugares que creían imaginarios.', 1),
-    (N'Código lunar', N'Th riller', 124, N'B', '2026-09-03',
+    (N'Código lunar', N'Thriller', 124, N'B', '2026-09-03',
      N'Una programadora descubre un mensaje oculto en una transmisión procedente de la Luna.', 1),
     (N'La casa del faro', N'Suspenso', 98, N'B15', '2026-08-22',
      N'Un visitante llega a un faro aislado y descubre que sus habitantes guardan un secreto.', 1);
