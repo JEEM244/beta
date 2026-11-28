@@ -1,0 +1,22 @@
+@model Funcion
+@{
+    ViewData["Title"] = "Detalles de función";
+}
+
+<h1 class="page-title">Detalles de función</h1>
+<dl class="row">
+    <dt class="col-sm-3">Película</dt>
+    <dd class="col-sm-9">@Model.Pelicula?.Titulo</dd>
+    <dt class="col-sm-3">Sala</dt>
+    <dd class="col-sm-9">@Model.Sala?.NombreSala</dd>
+    <dt class="col-sm-3">Fecha</dt>
+    <dd class="col-sm-9">@Model.FechaFuncion.ToString("dd/MM/yyyy")</dd>
+    <dt class="col-sm-3">Hora de inicio</dt>
+    <dd class="col-sm-9">@Model.HoraInicio.ToString(@"hh\:mm")</dd>
+    <dt class="col-sm-3">Precio</dt>
+    <dd class="col-sm-9">@Model.Precio.ToString("C")</dd>
+    <dt class="col-sm-3">Idioma</dt>
+    <dd class="col-sm-9">@Model.Idioma</dd>
+</dl>
+<a asp-action="Edit" asp-route-id="@Model.IdFuncion" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Regresar</a>
