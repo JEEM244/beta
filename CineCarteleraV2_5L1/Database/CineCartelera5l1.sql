@@ -63,6 +63,37 @@ CREATE TABLE Funciones
 );
 GO
 
+-- DATOS DE EJEMPLO: 4 PELICULAS
+INSERT INTO Peliculas
+    (Titulo, Genero, DuracionMinutos, Clasificacion, FechaEstreno, Sinopsis, Disponible)
+VALUES
+    (N'Horizonte de ceniza', N'Ciencia ficción', 118, N'B15', '2026-11-20',
+     N'Una tripulación intenta encontrar un nuevo hogar después de recibir una señal desconocida.', 1),
+    (N'El mapa de los sueños', N'Aventura', 105, N'A', '2026-10-15',
+     N'Dos hermanos siguen un mapa antiguo que los lleva a lugares que creían imaginarios.', 1),
+    (N'Código lunar', N'Th riller', 124, N'B', '2026-09-03',
+     N'Una programadora descubre un mensaje oculto en una transmisión procedente de la Luna.', 1),
+    (N'La casa del faro', N'Suspenso', 98, N'B15', '2026-08-22',
+     N'Un visitante llega a un faro aislado y descubre que sus habitantes guardan un secreto.', 1);
+GO
+
+-- DATOS DE EJEMPLO: 3 SALAS
+INSERT INTO Salas (NombreSala, Capacidad, FormatoSala, Activa)
+VALUES
+    (N'Sala 1', 90, N'Tradicional', 1),
+    (N'Sala 2', 60, N'3D', 1),
+    (N'Sala VIP', 30, N'VIP', 1);
+GO
+
+-- DATOS DE EJEMPLO: 3 FUNCIONES
+INSERT INTO Funciones
+    (IdPelicula, IdSala, FechaFuncion, HoraInicio, Precio, Idioma)
+VALUES
+    (1, 1, '2026-12-01', '16:00', 75.00, N'Español'),
+    (2, 2, '2026-12-01', '18:30', 90.00, N'Subtitulada'),
+    (3, 3, '2026-12-02', '20:00', 120.00, N'Español');
+GO
+
 -- CONSULTAR LAS TABLAS
 SELECT * FROM Peliculas;
 SELECT * FROM Salas;
