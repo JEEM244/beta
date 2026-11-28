@@ -164,12 +164,10 @@ public class FuncionesController : Controller
     private async Task CargarListasAsync(int? peliculaSeleccionada = null, int? salaSeleccionada = null)
     {
         var peliculas = await _context.Peliculas
-            .Where(p => p.Disponible)
             .OrderBy(p => p.Titulo)
             .ToListAsync();
 
         var salas = await _context.Salas
-            .Where(s => s.Activa)
             .OrderBy(s => s.NombreSala)
             .ToListAsync();
 
