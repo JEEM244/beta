@@ -9,18 +9,17 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark cinema-navbar">
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom shadow-sm">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center gap-2" asp-controller="Home" asp-action="Index">
-                    <span class="brand-mark">C</span>
-                    <span>CINE<span class="brand-light">CARTELERA</span><small>CONTROL DE CINE · 5L1</small></span>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    Cine<span class="brand-accent">Cartelera</span> <small>5L1</small>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#mainNavigation" aria-controls="mainNavigation"
+                        data-bs-target=".navbar-collapse" aria-controls="mainNavigation"
                         aria-expanded="false" aria-label="Mostrar navegación">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse" id="mainNavigation">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="mainNavigation">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Home" asp-action="Index">Inicio</a>
@@ -51,10 +50,9 @@
         @RenderBody()
     </main>
 
-    <footer class="site-footer">
-        <div class="container d-flex flex-wrap justify-content-between gap-2">
-            <span> CINECARTELERA <span class="brand-light">5L1</span></span>
-            <span>Proyecto MVC · 2026</span>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - CineCartelera 5L1 - Práctica MVC
         </div>
     </footer>
 
