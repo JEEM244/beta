@@ -3,23 +3,23 @@
     ViewData["Title"] = "Salas";
 }
 
-<div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
     <div>
-        <span class="eyebrow">ESPACIOS Y CAPACIDAD</span>
+        <span class="eyebrow">ESPACIOS DEL CINE</span>
         <h1 class="page-title">Salas</h1>
-        <p class="page-subtitle mb-0">Organiza los espacios y formatos de proyección.</p>
+        <p class="page-subtitle mb-0">Consulta y administra las salas registradas.</p>
     </div>
-    <a asp-action="Create" class="btn btn-accent">+ Registrar sala</a>
+    <a asp-action="Create" class="btn btn-primary">Registrar sala</a>
 </div>
 
 <div class="table-shell">
     <table class="table table-hover align-middle mb-0">
         <thead>
             <tr>
-                <th>Sala</th>
+                <th>Nombre</th>
                 <th>Capacidad</th>
                 <th>Formato</th>
-                <th>Estado</th>
+                <th>Activa</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -32,12 +32,12 @@
                 <td><span class="data-tag">@item.FormatoSala</span></td>
                 <td>
                     <span class="status-pill @(item.Activa ? "status-on" : "status-off")">
-                        @(item.Activa ? "Activa" : "Inactiva")
+                        @(item.Activa ? "Sí" : "No")
                     </span>
                 </td>
                 <td class="table-actions">
-                    <a asp-action="Details" asp-route-id="@item.IdSala">Ver</a>
-                    <a asp-action="Edit" asp-route-id="@item.IdSala">Editar</a>
+                    <a asp-action="Edit" asp-route-id="@item.IdSala">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdSala">Detalles</a> |
                     <a asp-action="Delete" asp-route-id="@item.IdSala">Eliminar</a>
                 </td>
             </tr>
@@ -46,10 +46,6 @@
     </table>
     @if (!Model.Any())
     {
-        <div class="empty-state m-3">
-            <h3>No hay salas registradas</h3>
-            <p>Registra una sala para comenzar a organizar las funciones.</p>
-            <a asp-action="Create" class="btn btn-accent">Registrar sala</a>
-        </div>
+        <p class="text-muted m-3">Todavía no hay salas registradas.</p>
     }
 </div>
